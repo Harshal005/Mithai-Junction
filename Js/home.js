@@ -82,7 +82,6 @@ function page2Animation(){
     scrollTrigger : {
       trigger : "#page2 h1",
       scroller : "main",
-      markers : true,
       start : "top 80%",
       end : "top 10%",
       scrub : 1
@@ -122,7 +121,6 @@ function page3Animation(){
       scrollTrigger : {
         trigger : "#page3 h2",
         scroller : "main",
-        markers : true,
         start : "top 80%",
         end : "top 10%",
         scrub : 1,
@@ -151,52 +149,29 @@ function page3Animation(){
 }
 
 function floatingSweets(){
-  // Gulab jamun (slow)
-  gsap.to(".j1", {
-    scrollTrigger: {
-      trigger: "main",
-      scroll : "main",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1,
-      ease:"none"
-    },
-    y: -500,
-    yoyo : true
-  });
 
-  gsap.to(".j2", {
-    scrollTrigger: {
-      trigger: "main",
-      scroll : "main",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1
-    },
-    y: -500
+  gsap.from(".j1",{
+    opacity:0,
+    delay:2.5,
+    y:50
   });
+  gsap.from(".j2",{
+    opacity:0,
+    delay:2.5,
+    y:50
+  })
+  gsap.from(".j3",{
+    opacity:0,
+    delay:2.5,
+    y:50
+  })
+  gsap.from(".j4",{
+    opacity:0,
+    delay:2.5,
+    y:50
+  })
 
-  gsap.to(".j3", {
-    scrollTrigger: {
-      trigger: "main",
-      scroll : "main",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1
-    },
-    y: -500
-  });
 
-  gsap.to(".j4", {
-    scrollTrigger: {
-      trigger: "main",
-      scroll : "main",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1
-    },
-    y: -500
-  });
 }
 
 function footerBaluShahi(){
@@ -204,7 +179,7 @@ function footerBaluShahi(){
       scrollTrigger : {
         trigger : "#page4 .footer-brand",
         scroller : "main",
-        markers : true,
+        // markers : true,
         start : "top 80%",
         end : "top 15%",
         scrub : 1,
