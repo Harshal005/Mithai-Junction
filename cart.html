@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+  rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/CSS/cart.css">
+  <title>Document</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="./Images/logo 2.png" alt="Sweet Shop Logo"><span>Mithai Junction</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Products.html">Products</a>
+      
+      <a href="Contact.html">Contact</a>
+    </div>
+
+    <div class="other-links">
+      <i class="ri-logout-box-r-line logout"></i>
+      <i class="ri-shopping-cart-2-line cart-link"><span class="cart-count">0</span></i>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page1">
+      <h1>Your Cart</h1>
+
+      <div class="cart-container">
+
+        <div class="cart-items">
+          <div class="cart-card">
+
+            <div class="cart-image">
+              <img src="https://img.freepik.com/premium-photo/malai-peda-sweet-dish-from-india-made-from-milk-khoya-means-milk-solid-mava-served-white-plate-rustic-wooden-background-selective-focus_726363-865.jpg" alt="">
+
+              <div class="cart-qty">
+                <button class="qty-btn">-</button>
+                <span class="qty-count">1</span>
+                <button class="qty-btn">+</button>
+              </div>
+            </div>
+
+            <div class="cart-details">
+              <h2 class="cart-title">Malai Peda</h2>
+              <h4 class="cart-description">Soft, creamy peda made with fresh full-cream milk and sugar</h4>
+              <span class="cart-price">₹250 / 100g</span>
+
+              <button class="remove-btn"><i class="ri-delete-bin-6-line"></i> Remove</button>
+
+            </div>
+
+
+          </div>
+
+          <div class="cart-card">
+
+            <div class="cart-image">
+              <img src="https://img.freepik.com/premium-photo/malai-peda-sweet-dish-from-india-made-from-milk-khoya-means-milk-solid-mava-served-white-plate-rustic-wooden-background-selective-focus_726363-865.jpg" alt="">
+
+              <div class="cart-qty">
+                <button class="qty-btn">-</button>
+                <span class="qty-count">1</span>
+                <button class="qty-btn">+</button>
+              </div>
+            </div>
+
+            <div class="cart-details">
+              <h2 class="cart-title">Malai Peda</h2>
+              <h4 class="cart-description">Soft, creamy peda made with fresh full-cream milk and sugar</h4>
+              <span class="cart-price">₹250 / 100g</span>
+
+              <button class="remove-btn"><i class="ri-delete-bin-6-line"></i> Remove</button>
+
+            </div>
+
+
+          </div>
+        </div>
+        
+        <div class="bill-container">
+          <h2>Order Summary</h2>
+
+          <div class="bill-inner-container">
+            <div class="summary-row">
+              <span>Items (2)</span>
+              <span>₹500</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Delivery Charges</span>
+              <span>₹40</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Packaging</span>
+              <span>₹20</span>
+            </div>
+            <hr>
+            <div class="summary-total">
+              <span>Total Amount</span>
+              <span>₹500</span>
+            </div>
+
+            <button class="checkout-btn">
+              Proceed to Checkout
+            </button>
+
+            <p class="secure-text">
+              🔒 100% secure payments
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <script>
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartItemsDiv = document.querySelector(".cart-items");
+    const billContainer = document.querySelector(".bill-inner-container");
+    let total=0;
+        
+
+    // This function is for rendering cart items
+    function renderCardItems(){
+      cartItemsDiv.innerHTML = "";
+
+      if(cart.length === 0){
+        cartItemsDiv.innerHTML = `
+          <p style="text-align:center; font-size:1.2vw;">
+            Your cart is empty 🍬
+          </p>
+        `;
+        billContainer.innerHTML = "";
+        return;
+      }
+
+
+      cart.forEach(item => {
+        cartItemsDiv.innerHTML += `
+          <div class="cart-card">
+          <div class="cart-image">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-qty">
+              <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>
+              <span class="qty-count">${item.quantity}</span>
+              <button class="qty-btn" onclick="increaseQty(${item.id})">+</button>
+            </div>
+          </div>
+
+          <div class="cart-details">
+            <h2 class="cart-title">${item.name}</h2>
+            <h4 class="cart-description">${item.description}</h4>
+            <span class="cart-price">₹${item.price} / 100g</span>
+
+            <button class="remove-btn" onclick="removeItem(${item.id})">
+              Remove
+            </button>
+          </div>
+        </div>
+        <hr>
+      `;
+      });
+    }
+    
+
+    // This function is to calculate bill
+    function renderBill(){
+      let itemsCount = 0;
+      let subtotal = 0;
+
+      cart.forEach(item =>{
+        itemsCount += item.quantity;
+        subtotal += item.price * item.quantity;
+      });
+
+      const delivery = subtotal > 500 ? 0 : 40;
+      const packaging = cart.length ? 20 : 0;
+      total = subtotal + delivery + packaging;
+
+      billContainer.innerHTML =  `
+        <div class="summary-row">
+          <span>Items (${itemsCount})</span>
+          <span>₹${subtotal}</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Delivery Charges</span>
+          <span>₹${delivery}</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Packaging</span>
+          <span>₹${packaging}</span>
+        </div>
+
+        <hr>
+
+        <div class="summary-total">
+          <span>Total Amount</span>
+          <span>₹${total}</span>
+        </div>
+
+        <button class="checkout-btn">Proceed to Checkout</button>
+        <p class="secure-text">🔒 100% secure payments</p>
+      `;
+
+
+    }
+    
+    // This function is to increase the quantity
+    function increaseQty(id){
+      let item = cart.find(p => p.id===id);
+      item.quantity++;
+      updateCart();
+    }
+
+    // This function is to decrease the quantity
+    function decreaseQty(id){
+      let item = cart.find(p => p.id===id);
+      if(item.quantity > 1){
+        item.quantity--;
+      }
+      updateCart();
+    }
+
+    // This function is to remove the product from cart page
+    function removeItem(id){
+      cart = cart.filter(item=> item.id !== id);
+      updateCart();
+    }
+
+    function updateCart(){
+      localStorage.setItem("cart",JSON.stringify(cart));
+      renderCardItems();
+      renderBill();
+    }
+
+    // This function is for redirecting user to details page
+    document.querySelector(".bill-container").addEventListener("click",function(e){
+      if(e.target.classList.contains("checkout-btn")){
+        if(total > 40){
+          window.location.href = "checkout.html";
+        }
+        else{
+          alert("Please add items to cart");
+        }
+        
+      }
+      
+     
+    })
+
+
+    renderCardItems();
+    renderBill();
+  </script>
+
+</body>
+</html>

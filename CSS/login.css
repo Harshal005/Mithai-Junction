@@ -1,0 +1,151 @@
+:root {
+  --primary: #7B1E1E;
+  --secondary: #F4A261;
+  --bg: #FFF7E6;
+  --text: #3A1F1F;
+  --accent: #2A9D8F;
+
+  --chocolate: #4B1F1A;
+  --rose: #C48A93;
+  --pista: #9FAE9A;
+  --cream: #C9C7B6;
+  --caramel: #8B5A2B;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* background-color: #E8D8C4; */
+}
+body{
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #7B1E1E, #F4A261);
+}
+
+.login-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  box-shadow: 5px 15px 30px 2px rgba(0,0,0, 0.7);
+}
+.login-content{
+  height: 70vh;
+  width: 80%;
+  border-radius: 15px;
+  display: flex;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  animation: fadeIn 1.3s ease forwards;
+}
+
+.login-left{
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.05)),
+    url("https://plus.unsplash.com/premium_photo-1698500045534-d2fa32f9929b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  background-color: #3A1F1F;
+}
+.login-right{
+  height: 100%;
+  width: 60%;
+  /* background-color: #9FAE9A; */
+}
+.login-right>h4{
+  background-color: var(--primary);
+  color: white;
+  width: 160px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+.login-right div{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* gap: 2vw; */
+  padding: 3vw 2vw 2vw 2vw;
+}
+.login-form input{
+  font-size: 1.5vw;
+  width: 90%;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0, 0.4);
+  margin-top: 2vw;
+  background: transparent;
+  transition: border-color 0.5s ease;
+
+}
+#login-username:focus{
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--primary);
+}
+#login-password:focus{
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--primary);
+}
+.login-form h3{
+  font-weight: 600;
+  font-size: 1.6vw;
+  margin-top: 1vw;
+}
+.login-form button{
+  margin-top: 3vw;
+  width: 50%;
+  padding:7px;
+  font-size: 1.5vw;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background: linear-gradient(135deg, var(--caramel), var(--secondary));
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.login-form button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+#signUpButton{
+  margin-top: 2.8vw;
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+::placeholder{
+  color: rgba(0,0,0,0.5);
+}
+.login-form input:hover{
+  border-bottom-color: var(--primary);
+  
+}
+#signup-link{
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

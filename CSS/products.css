@@ -1,0 +1,429 @@
+:root {
+  --primary: #7B1E1E;
+  --secondary: #F4A261;
+  --bg: #FFF7E6;
+  --text: #3A1F1F;
+  --accent: #2A9D8F;
+
+  --chocolate: #4B1F1A;
+  --rose: #C48A93;
+  --pista: #9FAE9A;
+  --cream: #C9C7B6;
+  --caramel: #8B5A2B;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+body {
+  background-color: var(--bg);
+}
+main{
+  min-height: 100vh;
+  width: 100%;
+}
+.cart-count{
+  position: absolute;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 1vw;
+  bottom: 13px;
+  right: 1%;
+}
+.navbar {
+  height: 80px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  position: fixed;
+  transform: translateZ(0);
+  width: 100%;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+}
+
+.logo img {
+  height: 55px;
+  cursor: pointer;
+}
+.logo span{
+  font-size: 1.5vw;
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding: 8px 14px;
+  border: none;
+  border: 1px solid var(--chocolate);
+  border-radius: 30px;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+.nav-links a::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 15px;
+  height: 0%;
+  background-color: var(--chocolate);
+  z-index: -1;
+  transition: height 0.4s ease;
+}
+.nav-links a:hover::before {
+  height: 100%;
+}
+.nav-links a:hover {
+  color: #fff6e5;
+}
+.other-links {
+  display: flex;
+  gap: 20px;
+}
+
+.other-links i {
+  font-size: 26px;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+/* .other-links i:hover {
+  color: var(--primary);
+  transform: scale(1.1);
+} */
+
+
+
+
+
+#page1{
+  min-height: 100vh;
+  width: 100%;
+  padding: 10vw 3vw;
+}
+.heading, .sub-heading{
+  text-align: center;
+}
+.heading{
+  font-size: 4vw;
+}
+.sub-heading{
+  padding-top: 0.6vw;
+  font-size: 1.8vw;
+}
+.category-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 40px 5vw;
+}
+
+.category-card{
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+.category-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.category-card img{
+  width: 100%;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease;
+}
+
+.category-card:hover img{
+  transform: scale(1.1) rotate(3deg);
+}
+
+
+.category-card h3{
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.category-card p{
+  font-size: 14px;
+  color: #777;
+}
+
+.category-link{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+
+
+
+
+/* Footer CSS */
+#page3{
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #1f1f1f,
+    #3a1d0f
+  );
+}
+.footer{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  /* justify-content: space-between; */
+}
+.footer-left{
+  width: 20%;
+  /* background-color: #2A9D8F; */
+}
+.footer-left img{
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  height: 45vw;
+  transform: rotate(50deg);
+}
+.footer-right img{
+  position: absolute;
+  top: 10%;
+  height: 45vw;
+  right: -10%;
+  transform: rotate(310deg);
+}
+.footer-mid{
+  width: 60%;
+  /* background-color: #555; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: relative; */
+  height: 100%;
+}
+.header,.tagline,.footer-links,.footer-contact,.footer-socials,.copy{
+  /* border: 1px solid #2A9D8F; */
+  color: var(--cream);
+  /* position: absolute; */
+  /* width: 100%; */
+}
+.header{
+  margin-top: 5%;
+  font-size: 3.2vw;
+  padding-left: 8%;
+}
+.tagline{
+  margin-top: 1%;
+  font-size: 2vw;
+}
+.footer-links{
+  width: 30%;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer-links p{
+  font-size: 2vw;
+}
+.footer-links a{
+  position: relative;
+  font-size: 1.4vw;
+  text-decoration: none;
+  color: var(--caramel);
+  /* margin: 8px 0; */
+  padding-bottom: 4px;
+}
+
+.footer-links a::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--caramel);
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.footer-links a:hover::after{
+  width: 100%;
+}
+.footer-contact{
+  margin-top: 5%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.6vw;
+}
+.footer-socials{
+  margin-top: 5%;
+  font-size: 2.5vw;
+}
+.copy{
+  width: 50%;
+  margin-top: 1%;
+}
+.copy p{
+  text-align: center;
+}
+.footer-right{
+  width: 20%;
+  /* background-color: #7B1E1E; */
+}
+
+
+
+
+
+
+/* Products card css
+.product-card{
+   width: 280px; 
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 5px 10px 30px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover{
+  transform: translateY(-12px);
+   box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+}
+
+
+.product-img{
+  position: relative;
+  height: 200px;
+  background: #f7f3ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-img img{
+  width: 75%;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img img{
+  transform: scale(1.1);
+}
+
+
+.badge{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #c99a3a;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+
+.product-info{
+  padding: 18px;
+  text-align: center;
+}
+
+.product-info h3{
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.product-info p{
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 14px;
+}
+
+
+.price-cart{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price{
+  font-weight: 600;
+  color: #000;
+}
+
+.price-cart button{
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.price-cart button:hover{
+  background: #c99a3a;
+}
+
+
+<div class="product-card">
+          <div class="product-img">
+            <img src="./Images/kaju-katli.png" alt="Kaju Katli">
+            <span class="badge">Bestseller</span>
+          </div>
+
+          <div class="product-info">
+            <h3>Kaju Katli</h3>
+            <p>Classic cashew sweet made with pure desi ghee</p>
+
+            <div class="price-cart">
+              <span class="price">₹850 / kg</span>
+              <button>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+*/

@@ -1,0 +1,123 @@
+:root {
+  --primary: #7B1E1E;
+  --secondary: #F4A261;
+  --bg: #FFF7E6;
+  --text: #3A1F1F;
+  --accent: #2A9D8F;
+
+  --chocolate: #4B1F1A;
+  --rose: #C48A93;
+  --pista: #9FAE9A;
+  --cream: #C9C7B6;
+  --caramel: #8B5A2B;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* background-color: #E8D8C4; */
+}
+.signup-main{
+  height: 100vh;
+  width: 100%;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45)),
+    url("../Images/38848.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-inner{
+  border: 1px solid rgba(255,255,255,0.4);
+  background-color: #C9C7B6;
+  min-height: 66vh;
+  width: 30%;
+  background: transparent;
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px 20px 20px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  animation: slideUp 1.2s ease forwards;
+}
+@keyframes slideUp{
+  from{
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.signuptext{
+  margin-top: 1.5vw;
+  font-size: 2.2vw;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.signup-inner input{
+  margin-top: 1.7vw;
+  width: 90%;
+  border-radius: 10px;
+  padding: 8px 10px 8px 10px;
+  font-size: 1.5vw;
+  border: none;
+  outline: none;
+  background: transparent;
+  border: 1px solid white;
+  /* box-shadow: 0px 5px 15px 1px rgb(255, 255, 255, 0.2); */
+  color: white;
+  transition: all 0.3s ease;
+}
+.signup-inner input:focus{
+  border-color: var(--secondary);
+  box-shadow: 0 0 10px 2px rgba(244,162,97,0.3);
+}
+
+.signup-inner input:hover{
+  border-color: var(--secondary);
+}
+::placeholder{
+  color: rgb(255, 255, 255, 0.7);
+}
+.signup-button{
+  margin-top: 2rem;
+  padding: 10px;
+  width: 80%;
+  background: linear-gradient(135deg, var(--secondary), var(--caramel));
+  color: #3A1F1F;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.3vw;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.signup-button:hover{
+  transform: translateY(-3px);
+  
+}
+.already-login{
+  margin-top: 2vw;
+  font-size: 1.1vw;
+  color: rgba(255,255,255,0.8);
+}
+
+.already-login a{
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.already-login a:hover{
+  text-decoration: underline;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+  rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/CSS/checkout.css">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <h1>Checkout</h1>
+
+  <div class="checkout-container">
+    <section class="checkout-section">
+      <h2>Customer Details</h2>
+      <input type="text" placeholder="Full Name" id="name">
+      <input type="tel" name="" id="mobile" placeholder="Mobile Number">
+      <input type="email" name="" id="email" placeholder="Email (Optional)">
+    </section>
+
+    <section class="checkout-section">
+      <h2>Delivery Address</h2>
+      <input type="text" id="house" placeholder="House No / Flat No">
+      <input type="text" id="area" placeholder="Area / Street">
+      <input type="text" id="city" placeholder="City">
+      <input type="text" id="pincode" placeholder="Pincode">
+    </section>
+
+    <section class="checkout-section">
+      <h2>Order Summary</h2>
+      
+      <div id="order-summary">
+
+      </div>
+      <div class="price-breakup">
+        <p>Subtotal <span>₹<span id="subtotal">0</span></span></p>
+        <p>Delivery <span>₹<span id="delivery">0</span></span></p>
+        <p>Packaging <span>₹<span id="packaging">0</span></span></p>
+        <hr>
+        <h3>Total <span>₹<span id="total-price">0</span></span></h3>
+      </div>
+    </section>
+
+    <section class="checkout-section">
+      <h2>Payment Method</h2>
+      <label><input type="radio" name="payment" id="" value="COD"> Cash On Delivery</label>
+      <label><input type="radio" name="payment" value="UPI"> UPI</label>
+    </section>
+
+    <button class="place-order-btn">Place Order</button>
+  </div>
+
+  <script src="./Js/checkout.js"></script>
+  
+</body>
+</html>

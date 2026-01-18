@@ -1,0 +1,133 @@
+:root {
+  --primary: #7B1E1E;
+  --secondary: #F4A261;
+  --bg: #FFF7E6;
+  --text: #3A1F1F;
+  --accent: #2A9D8F;
+
+  --chocolate: #4B1F1A;
+  --rose: #C48A93;
+  --pista: #9FAE9A;
+  --cream: #C9C7B6;
+  --caramel: #8B5A2B;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+main{
+  min-height: 100vh;
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
+body {
+  background-color:  #fff7f0;
+  overflow-x: hidden;
+  color: #333;
+
+}
+h1{
+  text-align: center;
+  font-size: 36px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #8b2c2c;
+  letter-spacing: 1px;
+}
+.checkout-container{
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.checkout-section{
+  margin-bottom: 30px;
+}
+.checkout-section h2{
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #5c1a1a;
+  border-left: 5px solid #d97706;
+  padding-left: 12px;
+}
+.checkout-section input[type="text"],
+.checkout-section input[type="tel"],
+.checkout-section input[type="email"] {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1.5vw;
+  transition: all 0.3s ease;
+}
+.checkout-section input:focus{
+  border-color: #d97706;
+  outline : none;
+  box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.2);
+}
+.checkout-section p{
+  font-size: 15px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.checkout-section hr {
+  margin: 14px 0;
+  border: none;
+  border-top: 1px dashed #ccc;
+}
+.checkout-section h3 {
+  text-align: right;
+  font-size: 20px;
+  color: #8b2c2c;
+}
+.checkout-section label{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2vw;
+  cursor: pointer;
+}
+.checkout-section input[type="radio"] {
+  accent-color: #d97706;
+  cursor: pointer;
+}
+.place-order-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+} 
+.place-order-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(217, 119, 6, 0.4);
+}
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .checkout-container {
+    padding: 24px;
+  }
+
+  .checkout-section h2 {
+    font-size: 20px;
+  }
+}

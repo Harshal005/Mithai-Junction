@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/order-success.css">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="order-success-container">
+    <div class="success-icon">✅</div>
+
+    <h1>Order Placed Successfully!</h1>
+    <p>Thank you for ordering from <strong>Mithai Junction</strong></p>
+
+    <div class="order-id-box">
+      <span>Your Order ID</span>
+      <h2 id="orderId"></h2>
+    </div>
+
+    <a href="products.html" class="btn">Continue Shopping</a>
+  </div>
+
+  <script>
+    const orderId = "MJ-" + Date.now();
+
+    
+    document.getElementById("orderId").innerText = orderId;
+
+    
+    localStorage.removeItem("cart");
+  </script>
+
+</body>
+</html>
