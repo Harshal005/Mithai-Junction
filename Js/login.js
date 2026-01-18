@@ -30,7 +30,7 @@ loginButton.addEventListener("click", function(){
   else if(storedUsername === loginUsername.value.trim() && storedPassword === loginPassword.value.trim()){
     alert("Login Successful");
     localStorage.setItem("isLoggedIn",true);
-    window.location.href = "Home.html";
+    window.location.href = "home.html";
   }
 
 
