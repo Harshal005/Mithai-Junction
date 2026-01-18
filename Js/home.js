@@ -2,42 +2,42 @@ gsap.registerPlugin(ScrollTrigger);
 
 const main = document.querySelector("main");
 
-// const locoScroll = new LocomotiveScroll({
-//   el: main,
-//   smooth: true,
-//   lerp : 0.06
-// });
+const locoScroll = new LocomotiveScroll({
+  el: main,
+  smooth: true,
+  lerp : 0.06
+});
 
-// // locomotive → GSAP sync
-// locoScroll.on("scroll", ScrollTrigger.update);
+// locomotive → GSAP sync
+locoScroll.on("scroll", ScrollTrigger.update);
 
-// ScrollTrigger.scrollerProxy(main, {
-//   scrollTop(value) {
-//     return arguments.length
-//       ? locoScroll.scrollTo(value, 0, 0)
-//       : locoScroll.scroll.instance.scroll.y;
-//   },
-//   getBoundingClientRect() {
-//     return {
-//       top: 0,
-//       left: 0,
-//       width: window.innerWidth,
-//       height: window.innerHeight
-//     };
-//   },
-//   pinType: main.style.transform ? "transform" : "fixed"
-// });
+ScrollTrigger.scrollerProxy(main, {
+  scrollTop(value) {
+    return arguments.length
+      ? locoScroll.scrollTo(value, 0, 0)
+      : locoScroll.scroll.instance.scroll.y;
+  },
+  getBoundingClientRect() {
+    return {
+      top: 0,
+      left: 0,
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  },
+  pinType: main.style.transform ? "transform" : "fixed"
+});
 
-// // Refresh on load
-// ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-// ScrollTrigger.refresh();
+// Refresh on load
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+ScrollTrigger.refresh();
 
 window.addEventListener("load", function(){
-  // page1Animation();
-  // page2Animation();
-  // page3Animation();
-  // floatingSweets();
-  // footerBaluShahi();
+  page1Animation();
+  page2Animation();
+  page3Animation();
+  floatingSweets();
+  footerBaluShahi();
 })
 
 function page1Animation(){
@@ -246,16 +246,16 @@ function footerBaluShahi(){
       
       
 // THis is the code to hide the navbar when scroll at the footer of the page
-// const navbar = document.querySelector(".navbar");
-// const footer = document.querySelector("#page4");
-// ScrollTrigger.create({
-//   trigger: "#page4",
-//   scroller: main, // LocomotiveScroll container
-//   start: "top bottom", // when top of footer hits bottom of viewport
-//   end: "top top",
-//   onEnter: () => { navbar.style.top = "-100px"; },
-//   onLeaveBack: () => { navbar.style.top = "0"; },
-// });
+const navbar = document.querySelector(".navbar");
+const footer = document.querySelector("#page4");
+ScrollTrigger.create({
+  trigger: "#page4",
+  scroller: main, // LocomotiveScroll container
+  start: "top bottom", // when top of footer hits bottom of viewport
+  end: "top top",
+  onEnter: () => { navbar.style.top = "-100px"; },
+  onLeaveBack: () => { navbar.style.top = "0"; },
+});
 
 
 // Redirecting to cart page
