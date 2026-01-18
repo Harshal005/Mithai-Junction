@@ -45,7 +45,7 @@ function validateCredentials(username, email, password, confirmpassword) {
   localStorage.setItem("email", email.value);
   localStorage.setItem("isLoggedIn", "true");
 
-  window.location.href = "home.html";
+  window.location.href = "Home.html";
 }
 
 function isValidEmail(email){
