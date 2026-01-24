@@ -242,7 +242,7 @@ cartlink.addEventListener("click",function (){
 // redirecting to products page
 let explore = document.querySelector(".explore");
 explore.addEventListener("click",function (){
-  window.location.href = "Products.html";
+  window.location.href = "products.html";
 })
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
