@@ -82,7 +82,15 @@ function validateCheckout(){
 function placeOrder(){
   alert("Order Placed Successfully");
 
+  const orderData = {
+    orderId: "MJ-" + Date.now(),
+    date: new Date().toLocaleDateString(),
+    items: cart
+  };
+
+  localStorage.setItem("lastOrder", JSON.stringify(orderData));
   localStorage.removeItem("cart");
 
+  // redirect
   window.location.href = "order-success.html";
 }

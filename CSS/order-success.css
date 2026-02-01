@@ -28,10 +28,15 @@ main{
 body {
   font-family: Arial, sans-serif;
   background: #f7f7f7;
+  
+  
+}
+main{
+  min-height: 100vh;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 100vh;
 }
 .order-success-container{
   background: #fff;
@@ -68,4 +73,75 @@ body {
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
+}
+
+.receipt{
+  background-color: #ececec;
+  min-height: 75vh;
+  border-radius: 15px;
+  width: 650px;
+  padding: 20px;
+  position: relative;
+}
+#otherdetails{
+  margin: 20px 0;
+}
+#receiptItems{
+  padding: 20px 0;
+  margin: 10px 0;
+  border-top: 1px dashed black;
+  border-bottom: 1px dashed black;
+}
+.receipt-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.receipt-total {
+  border-top: 1px dashed black;
+  margin-top: 10px;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  
+}
+.bill-row{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 6px 0;
+}
+#otherdetails b, #otherdetails span{
+  font-size: 1.1rem;
+}
+#deliveryCharge {
+  color: #27ae60;
+  font-weight: bold;
+}
+.bill-top{
+  display: flex;
+  justify-content: space-between;
+
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .receipt, .receipt * {
+    visibility: visible;
+  }
+
+  .receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .bill-top .btn {
+    display: none;
+  }
 }

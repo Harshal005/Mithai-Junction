@@ -7,29 +7,109 @@
   <title>Document</title>
 </head>
 <body>
-  
-  <div class="order-success-container">
-    <div class="success-icon">✅</div>
+  <main>
 
-    <h1>Order Placed Successfully!</h1>
-    <p>Thank you for ordering from <strong>Mithai Junction</strong></p>
-
-    <div class="order-id-box">
-      <span>Your Order ID</span>
-      <h2 id="orderId"></h2>
+    <div class="order-success-container">
+      <div class="success-icon">✅</div>
+      
+      <h1>Order Placed Successfully!</h1>
+      <p>Thank you for ordering from <strong>Mithai Junction</strong></p>
+      
+      <div class="order-id-box">
+        <span>Your Order ID</span>
+        <h2 id="orderId"></h2>
+      </div>
+      
+      <a href="products.html" class="btn">Continue Shopping</a>
     </div>
 
-    <a href="products.html" class="btn">Continue Shopping</a>
-  </div>
+    <div class="receipt">
+      <div class="bill-top">
+        <h1>Order Summary</h1>
+        <button class="btn" onclick="printBill()">Download Bill</button>
+      </div>
 
+      <div id="otherdetails">
+        <b>Date : </b><span id="showDate"></span>
+        <br>
+        <b>Order ID : </b><span id="showOrderId"></span>
+      </div>
+
+
+      <div id="receiptItems">
+
+      </div>
+
+      <div class="bill-row">
+        <span>Subtotal</span>
+        <span id="subTotal"></span>
+      </div>
+
+      <div class="bill-row">
+        <span>Delivery Charges</span>
+        <span id="deliveryCharge"></span>
+      </div>
+
+      <div class="bill-row">
+        <span>Packaging Charges</span>
+        <span id="packagingCharge"></span>
+      </div>
+      
+      
+
+      <div class="receipt-total">
+        <strong>Total Amount:</strong>
+        <span id="totalAmount"></span>
+      </div>
+
+
+    </div>
+  </main>
+  
   <script>
-    const orderId = "MJ-" + Date.now();
+    const order = JSON.parse(localStorage.getItem("lastOrder"));
 
-    
-    document.getElementById("orderId").innerText = orderId;
+    if (!order) {
+      alert("No order found!");
+      window.location.href = "products.html";
+    }
 
-    
-    localStorage.removeItem("cart");
+    let receiptHTML = "";
+    let subtotal = 0;
+
+    order.items.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      subtotal += itemTotal;
+
+      receiptHTML += `
+        <div class="receipt-item">
+          <span>${item.name} × ${item.quantity}</span>
+          <span>₹${itemTotal}</span>
+        </div>
+      `;
+    });
+
+    // charges
+    const delivery = subtotal > 500 ? 0 : 40;
+    const packaging = order.items.length ? 20 : 0;
+    const total = subtotal + delivery + packaging;
+
+    // show data
+    document.getElementById("orderId").innerText = order.orderId;
+    document.getElementById("showOrderId").innerText = order.orderId;
+    document.getElementById("showDate").innerText = order.date;
+
+    document.getElementById("receiptItems").innerHTML = receiptHTML;
+    document.getElementById("subTotal").innerText = "₹" + subtotal;
+    document.getElementById("deliveryCharge").innerText =
+      delivery === 0 ? "FREE" : "₹" + delivery;
+    document.getElementById("packagingCharge").innerText = "₹" + packaging;
+    document.getElementById("totalAmount").innerText = "₹" + total;
+
+
+    function printBill(){
+      window.print();
+    }
   </script>
 
 </body>
