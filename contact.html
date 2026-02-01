@@ -50,22 +50,28 @@
             <div class="field">
 
               <label for="fullname" id="fullname-label">Full Name</label><br>
-              <input type="text" name="fullname" id="fullname" maxlength="50">
+              <input type="text" name="fullname" id="fullname" maxlength="50" required>
             </div>
 
             <div class="field">
 
               <label for="email" id="email-label">E-mail</label><br>
-              <input type="email" name="email" id="email" maxlength="50">
+              <input type="email" name="email" id="email" maxlength="50" required>
             </div>
+
+            <div class="field">
+              <label for="subject" id="subject-label">Subject</label><br>
+              <input type="text" name="subject" id="subject" maxlength="50" required>
+            </div>
+
 
             <div class="field">
 
               <label for="message" id="message-label">Message</label><br>
-              <textarea name="message" id="message"></textarea>
+              <textarea name="message" id="message" required></textarea>
             </div>
 
-            <button class="sweet-btn" type="button">Send Sweet Message</button>
+            <button class="sweet-btn">Send Sweet Message</button>
           </form>
 
           <div class="contact-main2">
@@ -145,6 +151,17 @@
     </div>
   </main>
 
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init({
+          publicKey: "WlkIlLMiie48hwAqs",
+        });
+    })();
+  </script>
   <script src="./Js/contact.js"></script>
 </body>
 </html>
