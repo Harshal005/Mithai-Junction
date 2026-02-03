@@ -61,8 +61,6 @@ window.addEventListener("DOMContentLoaded", function(){
       localStorage.setItem("cart", JSON.stringify(cart));
       updateCount();
       alert("Item added to cart 🛒");
-      
-      
     })
   })
 

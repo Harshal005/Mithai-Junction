@@ -32,13 +32,24 @@ ScrollTrigger.scrollerProxy(main, {
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();
 
+
 window.addEventListener("load", function(){
+  locoScroll.update();
+
+  requestAnimationFrame(() => {
+    ScrollTrigger.refresh(true);
+
+    // 🔥 SHOW PAGE ONLY AFTER EVERYTHING IS READY
+    document.documentElement.style.visibility = "visible";
+  });
+
   page1Animation();
   page2Animation();
   page3Animation();
   floatingSweets();
   footerBaluShahi();
 })
+
 
 function page1Animation(){
   const tl = gsap.timeline({
